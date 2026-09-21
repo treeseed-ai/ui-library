@@ -1,15 +1,10 @@
 ---
-id: objective:ui-core
-title: TreeSeed UI Core Objective
-description: TreeSeed UI should provide the reusable Treeseed interface system, including layout-down Astro components, React widgets, forms, controls, cards, shells, dashboards, theme utilities, and CSS primitives.
-date: 2026-06-22
-summary: TreeSeed UI exists to provide the reusable Treeseed interface system, including layout-down Astro components, React widgets, forms, controls, cards, shells, dashboards, theme utilities, and CSS primitives while preserving its package boundary.
-status: live
-timeHorizon: long-term
-motivation: Package-local workdays need a stable north star from the README so humans and agents can plan, execute, review, and report work without drifting across package ownership boundaries.
-primaryContributor: ui-steward
-relatedQuestions: []
-relatedBooks: []
+schemaVersion: treeseed.objective/v1
+id: ui-core
+projectId: ui
+title: "TreeSeed UI Core Objective"
+outcome: "TreeSeed UI exists to provide the reusable Treeseed interface system, including layout-down Astro components, React widgets, forms, controls, cards, shells, dashboards, theme utilities, and CSS primitives while preserving its package boundary."
+status: active
 ---
 
 TreeSeed UI exists to provide the reusable Treeseed interface system, including layout-down Astro components, React widgets, forms, controls, cards, shells, dashboards, theme utilities, and CSS primitives.
