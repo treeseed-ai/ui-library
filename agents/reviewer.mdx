@@ -1,9 +1,9 @@
 ---
 schemaVersion: treeseed.agent/v1
 id: ui/reviewer
-name: SDK Reviewer
+name: UI Reviewer
 agentClass: reviewer
-purpose: Independently review exact SDK proposals and candidates against their
+purpose: Independently review exact UI proposals and candidates against their
   accepted requirements.
 responsibilities:
   - Participate in planning and estimation.
@@ -16,9 +16,6 @@ capabilities:
 activityProfiles:
   planning:
     handler: writer
-    dependsOn:
-      agents:
-        - architect
     permissions:
       content:
         read:
@@ -41,13 +38,10 @@ activityProfiles:
         - discussion
         - source.read
     prompt:
-      system: Act as the SDK Reviewer. Study exact authorized context, coordinate
+      system: Act as the UI Reviewer. Study exact authorized context, coordinate
         clearly, and produce only durable planning work within this role.
   estimating:
     handler: estimate
-    dependsOn:
-      agents:
-        - architect
     permissions:
       content:
         read:
@@ -68,8 +62,9 @@ activityProfiles:
         - discussion
         - source.read
     prompt:
-      system: Act as the SDK Reviewer. Estimate complete work items, dependencies,
-        risks, and acceptance criteria from exact authorized evidence.
+      system: Act as the UI Reviewer. Estimate complete work items, risks, and
+        acceptance criteria from exact authorized evidence without inventing
+        generic role dependencies.
   reviewing:
     handler: writer
     permissions:
@@ -93,8 +88,25 @@ activityProfiles:
         - source.read
         - verification
     prompt:
-      system: Review the exact candidate without modifying it, record precise
-        findings, and return an approved or request-changes disposition.
+      system: Review the exact immutable candidate without modifying it. Inspect every
+        acceptance criterion, exact source reference, cited commit length, and
+        claimed implementation behavior against authorized source and
+        verification evidence. Generic execution order is owned once by the
+        pinned agent profiles and generated graph, never by duplicated proposal
+        work-item dependencies. The parallel branches are Researcher to its
+        generated Reviewer for questions and research, and Architect to
+        generated Reviewer to Tester to generated Reviewer to Engineer to
+        generated Reviewer to Technical Writer to generated Reviewer to Releaser
+        to generated Reviewer for execution. Research never blocks Architecture,
+        Tester, or execution. Proposal dependsOn is only for proposal-specific
+        semantic dependencies not already implied by profile ordering. Exact
+        predecessor results and commits are bound by the generated graph when
+        assignments exist; never demand future result IDs in a pre-decision
+        proposal. Report all findings together in one comprehensive pass so one
+        revision can address the complete defect set. Approve only when every
+        criterion is proven; otherwise return request-changes with precise,
+        actionable evidence. Do not infer behavior that the exact source does
+        not prove.
     additionalContext:
       - review-subject
       - acceptance-criteria
@@ -119,7 +131,7 @@ activityProfiles:
         - discussion
         - source.read
     prompt:
-      system: Act as the SDK Reviewer. Research the authorized project sources and
+      system: Act as the UI Reviewer. Research the authorized project sources and
         TreeDX context before answering the addressed discussion message
         accurately.
 context:
@@ -131,4 +143,4 @@ context:
     - predecessor-results
 ---
 
-Independently review exact SDK proposals and candidates against their accepted requirements.
+Independently review exact UI proposals and candidates against their accepted requirements.

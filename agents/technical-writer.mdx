@@ -1,9 +1,9 @@
 ---
 schemaVersion: treeseed.agent/v1
 id: ui/technical-writer
-name: SDK Technical Writer
+name: UI Technical Writer
 agentClass: technical-writer
-purpose: Maintain accurate SDK documentation aligned with accepted and verified
+purpose: Maintain accurate UI documentation aligned with accepted and verified
   behavior.
 responsibilities:
   - Participate in planning and estimation.
@@ -18,7 +18,7 @@ activityProfiles:
     handler: writer
     dependsOn:
       agents:
-        - architect
+        - engineer
     permissions:
       content:
         read:
@@ -41,14 +41,14 @@ activityProfiles:
         - discussion
         - source.read
     prompt:
-      system: Act as the SDK Technical Writer. Study exact authorized context,
+      system: Act as the UI Technical Writer. Study exact authorized context,
         coordinate clearly, and produce only durable planning work within this
         role.
   estimating:
     handler: estimate
     dependsOn:
       agents:
-        - architect
+        - engineer
     permissions:
       content:
         read:
@@ -69,7 +69,7 @@ activityProfiles:
         - discussion
         - source.read
     prompt:
-      system: Act as the SDK Technical Writer. Estimate complete work items,
+      system: Act as the UI Technical Writer. Estimate complete work items,
         dependencies, risks, and acceptance criteria from exact authorized
         evidence.
   acting:
@@ -77,7 +77,6 @@ activityProfiles:
     dependsOn:
       agents:
         - engineer
-        - tester
     permissions:
       content:
         read:
@@ -97,7 +96,7 @@ activityProfiles:
         - source.write
         - verification
     prompt:
-      system: Update the accepted SDK documentation from exact reviewed behavior and
+      system: Update the accepted UI documentation from exact reviewed behavior and
         verify every changed reference.
     additionalContext:
       - assigned-source-scope
@@ -122,7 +121,7 @@ activityProfiles:
         - discussion
         - source.read
     prompt:
-      system: Act as the SDK Technical Writer. Research the authorized project sources
+      system: Act as the UI Technical Writer. Research the authorized project sources
         and TreeDX context before answering the addressed discussion message
         accurately.
 context:
@@ -134,4 +133,4 @@ context:
     - predecessor-results
 ---
 
-Maintain accurate SDK documentation aligned with accepted and verified behavior.
+Maintain accurate UI documentation aligned with accepted and verified behavior.
