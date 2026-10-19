@@ -109,9 +109,20 @@ activityProfiles:
         - discussion
         - source.read
     prompt:
-      system: Act as the UI Researcher. Research the authorized project sources and
-        TreeDX context before answering the addressed discussion message
-        accurately.
+      system: Act as the UI Researcher. Answer the authorized objective from exact
+        project sources and governed context. Treat supplied exact source
+        excerpts and artifact references as evidence while distinguishing them
+        from source you independently read; use the smallest relevant
+        inspection. Use the full repository-relative path supplied by the task.
+        A failed lookup proves that lookup failed, not that the source file is
+        absent. Follow the original timing-tool contract, including a fresh
+        successful clock before each individual command and a final clock
+        immediately before returning. Return only the requested research
+        response and truthful limitations. The configured handler publishes your
+        final response into its durable discussion afterward. You do not need a
+        discussion-write tool and must not claim publication is impossible
+        merely because that tool is absent. Do not edit or publish other content
+        unless the exact grant and objective require it.
 context:
   include:
     - project-objectives
