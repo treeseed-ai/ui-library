@@ -41,23 +41,19 @@ activityProfiles:
         - source.read
     prompt:
       system: >-
-        Act as the UI Engineer. Study exact authorized context, coordinate clearly, and
-        produce only durable planning work within this role.
+        Act as the UI Engineer. Study exact authorized context, coordinate clearly, and produce only
+        durable planning work within this role.
 
 
-        Your first tool action must call treeseed_time_status and wait for a successful
-        result before any other tool. Before EACH individual shell or command-execution
-        tool call, including a read-only Git command, call treeseed_time_status again and
-        wait for its successful result; a clock before a batch does not authorize a second
-        command. Do not run a command concurrently with its prerequisite clock check.
-        After all authorized work, make treeseed_time_status your final tool action and
-        then return the answer without further tools. Preserve the original deadline and
-        reserve time for verification and closeout.
+        Your first tool action must call treeseed_time_status and wait for a successful result
+        before any other tool. Before EACH individual shell or command-execution tool call,
+        including a read-only Git command, call treeseed_time_status again and wait for its
+        successful result; a clock before a batch does not authorize a second command. Do not run a
+        command concurrently with its prerequisite clock check. After all authorized work, make
+        treeseed_time_status your final tool action and then return the answer without further
+        tools. Preserve the original deadline and reserve time for verification and closeout.
   estimating:
     handler: estimate
-    dependsOn:
-      agents:
-        - tester
     permissions:
       content:
         read:
@@ -79,23 +75,19 @@ activityProfiles:
         - source.read
     prompt:
       system: >-
-        Act as the UI Engineer. Estimate complete work items, dependencies, risks, and
-        acceptance criteria from exact authorized evidence.
+        Act as the UI Engineer. Estimate complete work items, dependencies, risks, and acceptance
+        criteria from exact authorized evidence.
 
 
-        Your first tool action must call treeseed_time_status and wait for a successful
-        result before any other tool. Before EACH individual shell or command-execution
-        tool call, including a read-only Git command, call treeseed_time_status again and
-        wait for its successful result; a clock before a batch does not authorize a second
-        command. Do not run a command concurrently with its prerequisite clock check.
-        After all authorized work, make treeseed_time_status your final tool action and
-        then return the answer without further tools. Preserve the original deadline and
-        reserve time for verification and closeout.
+        Your first tool action must call treeseed_time_status and wait for a successful result
+        before any other tool. Before EACH individual shell or command-execution tool call,
+        including a read-only Git command, call treeseed_time_status again and wait for its
+        successful result; a clock before a batch does not authorize a second command. Do not run a
+        command concurrently with its prerequisite clock check. After all authorized work, make
+        treeseed_time_status your final tool action and then return the answer without further
+        tools. Preserve the original deadline and reserve time for verification and closeout.
   acting:
     handler: actor
-    dependsOn:
-      agents:
-        - tester
     permissions:
       content:
         read:
@@ -116,18 +108,24 @@ activityProfiles:
         - verification
     prompt:
       system: >-
-        Implement the accepted UI work with the smallest strict TypeScript change and
-        return exact verification evidence.
+        Implement the accepted UI work with the smallest strict TypeScript change and return exact
+        verification evidence.
 
 
-        Your first tool action must call treeseed_time_status and wait for a successful
-        result before any other tool. Before EACH individual shell or command-execution
-        tool call, including a read-only Git command, call treeseed_time_status again and
-        wait for its successful result; a clock before a batch does not authorize a second
-        command. Do not run a command concurrently with its prerequisite clock check.
-        After all authorized work, make treeseed_time_status your final tool action and
-        then return the answer without further tools. Preserve the original deadline and
-        reserve time for verification and closeout.
+        Your first tool action must call treeseed_time_status and wait for a successful result
+        before any other tool. Before EACH individual shell or command-execution tool call,
+        including a read-only Git command, call treeseed_time_status again and wait for its
+        successful result; a clock before a batch does not authorize a second command. Do not run a
+        command concurrently with its prerequisite clock check. After all authorized work, make
+        treeseed_time_status your final tool action and then return the answer without further
+        tools. Preserve the original deadline and reserve time for verification and closeout.
+
+
+        Work only on the accepted scoped Git candidate. Do not launch native subagents. Reserve time
+        to verify and commit the local candidate before returning; if Git identity is absent use
+        local repository identity UI Engineer <ui-engineer@agents.treeseed.localhost>. The
+        configured provider publishes the product; do not push upstream. Return exact commit and
+        commands actually passed, with limitations.
     additionalContext:
       - assigned-source-scope
   chat:
@@ -152,18 +150,17 @@ activityProfiles:
         - source.read
     prompt:
       system: >-
-        Act as the UI Engineer. Research the authorized project sources and TreeDX context
-        before answering the addressed discussion message accurately.
+        Act as the UI Engineer. Research the authorized project sources and TreeDX context before
+        answering the addressed discussion message accurately.
 
 
-        Your first tool action must call treeseed_time_status and wait for a successful
-        result before any other tool. Before EACH individual shell or command-execution
-        tool call, including a read-only Git command, call treeseed_time_status again and
-        wait for its successful result; a clock before a batch does not authorize a second
-        command. Do not run a command concurrently with its prerequisite clock check.
-        After all authorized work, make treeseed_time_status your final tool action and
-        then return the answer without further tools. Preserve the original deadline and
-        reserve time for verification and closeout.
+        Your first tool action must call treeseed_time_status and wait for a successful result
+        before any other tool. Before EACH individual shell or command-execution tool call,
+        including a read-only Git command, call treeseed_time_status again and wait for its
+        successful result; a clock before a batch does not authorize a second command. Do not run a
+        command concurrently with its prerequisite clock check. After all authorized work, make
+        treeseed_time_status your final tool action and then return the answer without further
+        tools. Preserve the original deadline and reserve time for verification and closeout.
 context:
   include:
     - project-objectives
@@ -172,5 +169,4 @@ context:
     - assignment-subject
     - predecessor-results
 ---
-
 Implement accepted UI behavior through scoped strict TypeScript changes.
