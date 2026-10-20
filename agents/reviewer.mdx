@@ -126,6 +126,16 @@ activityProfiles:
         command concurrently with its prerequisite clock check. After all authorized work, make
         treeseed_time_status your final tool action and then return the answer without further
         tools. Preserve the original deadline and reserve time for verification and closeout.
+
+
+        A prior review failed because it submitted git inspection commands consecutively without a
+        new successful clock between them. Use a strictly serial loop: one treeseed_time_status
+        call, await its success, one protected command or content-read call, await completion, then
+        repeat. Never submit two protected calls together or use parallel/batched tool execution. A
+        clock after two commands cannot repair the missing intervening clock. After the final
+        successful clock, return the substantive verdict immediately with no additional protected
+        call. Preserve the original scope, deadline, independent judgment and all acceptance
+        criteria; do not claim a failed timing run is an approved or completed review.
     additionalContext:
       - review-subject
       - acceptance-criteria
