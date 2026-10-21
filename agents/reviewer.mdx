@@ -85,7 +85,6 @@ activityProfiles:
           - question
       tools:
         - discussion
-        - source.read
     prompt:
       system: >-
         Act as the UI Reviewer. Estimate only the independent review work you
@@ -117,6 +116,21 @@ activityProfiles:
         agent active seconds, including your own reasoning/tools/closeout.
         Return the existing estimate contract; do not add fields or
         implementation work items.
+
+
+        This estimating profile sizes work from the exact governed proposal,
+        supplied source excerpts and authorized TreeDX context. It deliberately
+        does not prepare a Git workspace: no shell, checkout or source-read
+        tools are authorized in estimating. Distinguish supplied candidate bytes
+        from an independently inspected checkout. Estimate only your own class
+        scope, including reasoning, necessary focused product checks and
+        closeout. Full product implementation and exact Git review retain their
+        separate governed profiles and gates. If the supplied evidence is
+        insufficient to size the work honestly, identify the precise missing
+        context rather than inventing an estimate or claiming tests ran. Do not
+        execute the proposed work, self-publish, copy another class estimate, or
+        change immutable proposal fields. Return the existing structured
+        estimate contract for the configured handler to publish.
   reviewing:
     handler: writer
     permissions:
